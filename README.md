@@ -13,13 +13,13 @@ npm install
 ```bash
 npm run start-dev
 ```
-### This Command will run the application in development mode and will connect to MongoDb URL defined in .env files as MONGO_TEST.
+### This Command will run the application in development mode.
 
 ## Running as a Production server
 ``` bash
 npm start 
 ```
-### This Command will run the application in Production mode and will connect to MongoDb URL defined in .env files as MONGO_URI.
+### This Command will run the application in Production mode.
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
@@ -28,6 +28,5 @@ Please make sure to update tests as appropriate.
 ```
 PORT=3000
 ```
-### ENV varialbles for CEWIT are in .env.prod and for AWS are in .env.aws. copy variables from these files to .env as per the deployment
 ## License
 [RocketSkills](https://rocketskills.in/)
