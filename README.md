@@ -1,4 +1,4 @@
-# Zeblok's Computational Application Backend
+# RocketSkills Backend
 
 This Application provides the REST API's for RocketSkills
 ## Installation of Node Packages
