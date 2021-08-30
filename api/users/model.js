@@ -1,11 +1,20 @@
-const Sequelize = require('sequelize')
-const db = require('../../database/connection')
+const {Sequelize, DataTypes } = require('sequelize')
+const sequelize = require('../../database/connection')
 
-const users = db.define('user', {
-  id: {
-    type: Sequelize.STRING
+const users = sequelize.define('user', {
+  id:{
+    type: DataTypes.INTIGER,
+    autoIncrement: true,
+    allowNull: false
   },
   name: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  description: {
+    type: DataTypes.STRING,
+    allowNull: false
   }
 })
+
+module.exports = Users
