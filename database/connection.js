@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize')
-
-const sequelize = new Sequelize('socialnetwork', 'root', 'akashsengar', { host: '127.0.0.1', dialect: 'mysql' })
+const config = require('../config/config.json')
+const sequelize = new Sequelize(config.development.database, config.development.username, config.development.password, { host: config.development.host, dialect: config.development.dialect })
 
 module.exports = sequelize
