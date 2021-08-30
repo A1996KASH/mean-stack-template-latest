@@ -16,15 +16,15 @@ dotenv.config({ debug: process.env.DEBUG })
 // Internal Imports or Middleware Imports will come here
 const errorHandler = require('../middleware/error')
 // Import DB
-// const connectDB = require('../config/db')
+const db = require('../database/connection')
 
 // route files
 const users = require('../api/users/')
 
 // connect to DB
-if (process.env.NODE_ENV !== 'test') {
-  // connectDB()
-}
+db.authenticate()
+  .then(() => console.log('Database connected...'))
+  .catch(err => console.log('Error: ' + err))
 
 const app = express()
 
