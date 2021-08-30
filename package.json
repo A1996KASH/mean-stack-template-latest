@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "NODE_ENV=development node index.js",
+    "start-dev": "NODE_ENV=development index.js",
     "start": "NODE_ENV=production node index.js",
     "seed": "node ./seeder/seeder.js -i",
     "destroy-data": "node ./seeder/seeder.js -d",
