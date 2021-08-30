@@ -1,5 +1,5 @@
 const asyncHandler = require('../../middleware/async')
-
+const User = require('./model')
 // @desc     Get User
 // @route    GET /api/v1/users/
 // @access   Private

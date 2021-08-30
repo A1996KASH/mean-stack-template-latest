@@ -1,17 +1,14 @@
-const {Sequelize, DataTypes } = require('sequelize')
+const { DataTypes } = require('sequelize')
 const sequelize = require('../../database/connection')
 
-const users = sequelize.define('user', {
-  id:{
-    type: DataTypes.INTIGER,
+const Users = sequelize.define('user', {
+  id: {
+    type: DataTypes.INTEGER,
     autoIncrement: true,
-    allowNull: false
+    allowNull: false,
+    primaryKey: true
   },
   name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  description: {
     type: DataTypes.STRING,
     allowNull: false
   }

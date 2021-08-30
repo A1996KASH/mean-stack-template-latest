@@ -16,16 +16,19 @@ dotenv.config({ debug: process.env.DEBUG })
 // Internal Imports or Middleware Imports will come here
 const errorHandler = require('../middleware/error')
 // Import DB
-const db = require('../database/connection')
+const sequelize = require('../database/connection')
 
 // route files
 const users = require('../api/users/')
 
 // connect to DB
-db.authenticate()
-  .then(() => console.log('Database connected...'))
+sequelize.authenticate()
+  .then(() => {
+    sequelize.sync({ force: true }).then((result) => {
+      console.log(result)
+    })
+  })
   .catch(err => console.log('Error: ' + err))
-
 const app = express()
 
 // Body Parser
