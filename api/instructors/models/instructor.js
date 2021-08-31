@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../../../database/connection')
 
-const Instructor = sequelize.define('course', {
+const Instructor = sequelize.define('instructor', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -10,12 +10,10 @@ const Instructor = sequelize.define('course', {
   },
   profilePicture: {
     type: DataTypes.STRING(512),
-    allowNull: false,
     field: 'profile_picture'
   },
   signatureLink: {
     type: DataTypes.STRING(512),
-    allowNull: false,
     field: 'signature_link'
   },
   createdAt: {
@@ -29,7 +27,7 @@ const Instructor = sequelize.define('course', {
     field: 'updated_at'
   }
 }, {
-  freezeTableName: true,
+  tableName: 'instructor',
   timestamps: false
 })
 

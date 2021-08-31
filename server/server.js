@@ -9,7 +9,7 @@ const morgan = require('morgan')
 const path = require('path')
 const rateLimit = require('express-rate-limit')
 const xss = require('xss-clean')
-
+const { setRelatons } = require('../database/relations')
 // load env variables
 dotenv.config({ debug: process.env.DEBUG })
 
@@ -20,13 +20,15 @@ const sequelize = require('../database/connection')
 
 // route files
 const courses = require('../api/courses/')
+const instructor = require('../api/instructors')
 
 // connect to DB
 sequelize.authenticate()
   .then(() => {
-    // sequelize.sync({ force: true }).then((result) => {
-    //   console.log(result)
-    // })
+    setRelatons()
+    sequelize.sync({}).then((result) => {
+      console.log(result)
+    })
     console.log('DB Connected')
   })
   .catch(err => console.log('Error: ' + err))
@@ -99,7 +101,7 @@ app.use(express.static(path.join(__dirname, '../public/client'), options))
 // Use Routes
 // All other routes should redirect to the index.html
 app.use('/courses', courses)
-
+app.use('/instructor', instructor)
 // All other routes should redirect to the index.html
 app.route('/*')
   .get((req, res) => {

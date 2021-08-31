@@ -130,7 +130,7 @@ const Course = sequelize.define('course', {
     field: 'updated_at'
   }
 }, {
-  freezeTableName: true,
+  tableName: 'course',
   timestamps: false
 })
 

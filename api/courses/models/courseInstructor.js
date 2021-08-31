@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../../../database/connection')
 
-const CourseInstructor = sequelize.define('course_instructor', {
+const CourseInstructor = sequelize.define('courseInstructor', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -34,7 +34,7 @@ const CourseInstructor = sequelize.define('course_instructor', {
     field: 'updated_at'
   }
 }, {
-  freezeTableName: true,
+  tableName: 'course_instructor',
   timestamps: false
 })
 
