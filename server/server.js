@@ -19,14 +19,15 @@ const errorHandler = require('../middleware/error')
 const sequelize = require('../database/connection')
 
 // route files
-const users = require('../api/users/')
+const courses = require('../api/courses/')
 
 // connect to DB
 sequelize.authenticate()
   .then(() => {
-    sequelize.sync({ force: true }).then((result) => {
-      console.log(result)
-    })
+    // sequelize.sync({ force: true }).then((result) => {
+    //   console.log(result)
+    // })
+    console.log('DB Connected')
   })
   .catch(err => console.log('Error: ' + err))
 const app = express()
@@ -97,7 +98,7 @@ app.use(express.static(path.join(__dirname, '../public/client'), options))
 
 // Use Routes
 // All other routes should redirect to the index.html
-app.use('/api/v1/users', users)
+app.use('/courses', courses)
 
 // All other routes should redirect to the index.html
 app.route('/*')
